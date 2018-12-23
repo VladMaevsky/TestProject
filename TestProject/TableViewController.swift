@@ -32,15 +32,15 @@ class TableViewController: UITableViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        var textField = UITextField()
+        var textField: UITextField?
         
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add", style: .default) { [unowned self] (action) in
-            self.items.append(textField.text ?? "default")
+        let action = UIAlertAction(title: "Add", style: .default) { [unowned self] _ in
+            self.items.append(textField?.text ?? "")
             self.tableView.reloadData()
         }
         
-        alert.addTextField { (alertTextField) in
+        alert.addTextField { alertTextField in
             alertTextField.placeholder = "Add a new item"
             textField = alertTextField
         }
