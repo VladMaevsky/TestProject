@@ -30,24 +30,19 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        var textField = UITextField()
+        var textField: UITextField?
         
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            self.items.append(textField.text!)
+        let action = UIAlertAction(title: "Add", style: .default) { [unowned self] _ in
+            self.items.append(textField?.text ?? "")
             self.tableView.reloadData()
         }
         
-        alert.addTextField { (alertTextField) in
+        alert.addTextField { alertTextField in
             alertTextField.placeholder = "Add a new item"
             textField = alertTextField
-            
         }
         
         alert.addAction(action)
