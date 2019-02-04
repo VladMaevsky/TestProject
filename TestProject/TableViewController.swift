@@ -49,6 +49,10 @@ class TableViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
+    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        addButton.isHidden = true
+    }
+    
     @IBAction func actionAdd(_ sender: Any?) {
         addNewItem()
     }
@@ -74,7 +78,10 @@ class TableViewController: UITableViewController {
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(!isEditing, animated: true)
-        addButton.isHidden = !isEditing
+        super.setEditing(editing, animated: animated)
+        addButton.isHidden = !editing
+        if editing {
+            print("setEditing!!!!!!11111")
+        }
     }
 }
