@@ -17,6 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yXi-J7-nwR">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Add"/>
+                            <connections>
+                                <action selector="actionAdd:" destination="apx-Dw-HCA" eventType="touchUpInside" id="uK8-9x-0EG"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="myCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="myCell" textLabel="YYS-11-vHm" style="IBUITableViewCellStyleDefault" id="nW2-1s-jIL">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -44,10 +52,13 @@
                     <navigationItem key="navigationItem" title="TestProject" id="0e2-Zr-slP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zN1-S9-UPs">
                             <connections>
-                                <action selector="addButtonPressed:" destination="apx-Dw-HCA" id="z42-Pg-YCc"/>
+                                <action selector="actionAdd:" destination="apx-Dw-HCA" id="M7J-wA-5tR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="yXi-J7-nwR" id="gcW-Xy-BUH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRn-Q6-bE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
